@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chess Viewer - CMSC421 Spring 2020</title>
+  <base href="/~iboutsi1/" />
 </head>
 
 <body>
@@ -62,14 +63,14 @@
       <p>
         The first thing you need to do is download the executables. You will need:
         <ul class="list-unstyled">
-          <li>The server: <a href="/downloads/chess-server" download>/downloads/chess-server</a></li>
+          <li>The server: <a href="downloads/chess-server" download>/downloads/chess-server</a></li>
         </ul>
 
         And one of the following depending on your host OS. This will be the "viewer" or client:
         <ul class="list-unstyled">
-          <li>Windows x64: <a href="/downloads/" download>/downloads/</a></li>
-          <li>Linux x64: <a href="/downloads/chess-viewer-1.0.0.AppImage" download>/downloads/chess-viewer-1.0.0.AppImage</a></li>
-          <li>MacOS : <a href="/downloads/test.txt" download>/downloads/test.txt</a></li>
+          <li>Windows x64: <a href="downloads/chess-viewer-1.0.0.exe" download>/downloads/chess-viewer-1.0.0.exe</a></li>
+          <li>Linux x64: <a href="downloads/chess-viewer-1.0.0.AppImage" download>/downloads/chess-viewer-1.0.0.AppImage</a></li>
+          <li>MacOS : <a href="downloads/test.txt" download>/downloads/test.txt</a></li>
         </ul>
 
         Notice that you can use the linux executable inside your VM if you so chose.
@@ -100,7 +101,7 @@
 
       <p>It should look something like the following (with some names changed obviously):</p>
 
-      <img src="/static/server-running.png" alt="the server running" class="img-fluid">
+      <img src="static/server-running.png" alt="the server running" class="img-fluid">
 
       <p>
         The next step is to forward port 3000 between the host and the VM.
@@ -135,7 +136,7 @@
         As we've said, you can use the client straight from your Host OS assuming you downloaded the correct version,
         and it should look something like this:
       </p>
-      <img src="/static/client-running.png" alt="The client runnirg" class="img-fluid">
+      <img src="static/client-running.png" alt="The client runnirg" class="img-fluid">
       <p>
         Most of the buttons should be self explanatory.
         <ul>
@@ -161,7 +162,7 @@
       </p>
 
 
-      <img src="/static/chess-pieces.png" alt="Board Layout" class="img-fluid">
+      <img src="static/chess-pieces.png" alt="Board Layout" class="img-fluid">
     </section>
 
     <section id="faq">
@@ -185,13 +186,13 @@
     <section id="tldr">
       <h1 class="display-2">TL;DR</h1>
       <ul>
-        <li>Download the server</li>
+        <li>Download the server: <a href="downloads/chess-server" download>/downloads/chess-server</a></li>
         <li>
           Download one of the clients
           <ul>
-            <li>Windows</li>
-            <li>Linux</li>
-            <li>MacOS</li>
+            <li>Windows x64: <a href="downloads/chess-viewer-1.0.0.exe" download>/downloads/chess-viewer-1.0.0.exe</a></li>
+            <li>Linux x64: <a href="downloads/chess-viewer-1.0.0.AppImage" download>/downloads/chess-viewer-1.0.0.AppImage</a></li>
+            <!-- <li>MacOS</li> -->
           </ul>
         </li>
         <li>Forward port 3000 on the host to 3000 on the VM</li>

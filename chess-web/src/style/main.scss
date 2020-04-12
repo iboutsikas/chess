@@ -1,0 +1,14 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  text-align: justify;
+}
+
+#main-content {
+  margin-top: 2em;
+
+  #changelog {
+    margin-bottom: 1em; 
+  }
+}

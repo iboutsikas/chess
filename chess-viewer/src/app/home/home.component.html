@@ -1,0 +1,18 @@
+<mat-toolbar class="toolbar">
+    <span>Chess Viewer</span>
+    <div class="spacer"></div>
+    <button mat-raised-button color="primary" (click)="onNewGame()">New Game</button>
+    <button mat-raised-button color="accent" (click)="onCPU()">Request CPU Move</button>
+</mat-toolbar>
+
+<div class="viewer">
+    <app-chess-board></app-chess-board>
+</div>
+
+<div class="log">
+    <app-command-log></app-command-log>
+</div>
+
+<div class="user-input">
+    <command-input></command-input>
+</div>

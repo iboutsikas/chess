@@ -1,0 +1,9 @@
+<h3>Command Log</h3>
+<div class="command-log"  #scrollMe>
+    <div *ngFor="let command of commands | async">
+        <span class="command-log-item sent">&gt; {{command.command}}</span>
+        <span class="command-log-item reply">&lt; {{command.reply}}</span>
+    </div>
+</div>
+<button mat-raised-button color="primary" (click)="onClearLog()">Clear Log</button>
+

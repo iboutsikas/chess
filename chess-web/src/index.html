@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chess Viewer - CMSC421 Spring 2020</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Chess Viewer</span>
+  </nav>
+  <section id="main-content" class="container">
+    <div class="row">
+      <div class="jumbotron col-12">
+        <h1 class="display-4">Chess Viewer</h1>
+        <p class="lead">
+          A tool to help you interact with your chess driver and visualise the state of your driver.
+        </p>
+        <hr class="my-4">
+        <div id="changelog">
+
+          <div class="card">
+
+            <div class="card-header" id="changelog-header">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#changelog-content"
+                  aria-expanded="true" aria-controls="changelog-content">
+                  Changelog
+                </button>
+              </h5>
+            </div>
+
+            <div id="changelog-content" class="collapse show" aria-labelledby="changelog-header"
+              data-parent="#changelog">
+              <div class="card-body">
+                <ul class="mb-0">
+                  <li>Version 1.0.0 - Initial Release</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#setup" role="button">Take me to the full instructions</a>
+          <a class="btn btn-outline-secondary btn-sm" href="#tldr">TL;DR</a>
+        </p>
+      </div>
+    </div>
+
+    <section id="setup">
+      <h1 class="display-2">Set Up</h1>
+      <p>
+        The viewer is made up of two components. A server and a client. This allows you to use the client outside
+        your VM with your native OS and screen resolution.
+      </p>
+
+      <p>
+        The first thing you need to do is download the executables. You will need:
+        <ul class="list-unstyled">
+          <li>The server: <a href="/downloads/chess-server" download>/downloads/chess-server</a></li>
+        </ul>
+
+        And one of the following depending on your host OS. This will be the "viewer" or client:
+        <ul class="list-unstyled">
+          <li>Windows x64: <a href="/downloads/" download>/downloads/</a></li>
+          <li>Linux x64: <a href="/downloads/chess-viewer-1.0.0.AppImage" download>/downloads/chess-viewer-1.0.0.AppImage</a></li>
+          <li>MacOS : <a href="/downloads/test.txt" download>/downloads/test.txt</a></li>
+        </ul>
+
+        Notice that you can use the linux executable inside your VM if you so chose.
+      </p>
+
+      <div class="alert alert-danger" role="alert">
+        The server <span class="font-weight-bold">MUST</span> be inside your VM. You can select to use your VM or your
+        host OS for the client.
+        I would recommend your host OS.
+      </div>
+
+      <p>
+        Copy/move/download the server zip file in your VM. You can extract it wherever you want, for example
+        <code>~/chess-server</code>.
+        You can run it as a normal executable from your terminal:
+        <pre>
+            <code>
+              cd ~/chess-server
+              ./chess-server
+            </code>
+          </pre>
+      </p>
+
+      <div class="alert alert-danger" role="alert">
+        If you get an error saying premission denied you can give it execute rights with
+        <code>sudo chmod +x ./chess-server</code>.
+      </div>
+
+      <p>It should look something like the following (with some names changed obviously):</p>
+
+      <img src="/static/server-running.png" alt="the server running" class="img-fluid">
+
+      <p>
+        The next step is to forward port 3000 between the host and the VM.
+        <ol>
+          <li>From VirtualBox Manager open the settings for your VM</li>
+          <li>Go to Network</li>
+          <li>Click the advanced drop-down thing</li>
+          <li>Click Port Forwarding</li>
+          <li>Click the green button top right to add a new rule</li>
+          <li>Fill in the Name with whatever you want, Host Port and Guest Port with 3000</li>
+        </ol>
+      </p>
+
+      <div class="alert alert-info" role="alert">
+        If you are still struggling you can read <a href="https://www.simplified.guide/virtualbox/port-forwarding">this
+          guide</a>.
+        Just keep in mind that you only need to fill in the ports, nothing else.
+      </div>
+    </section>
+
+    <section id="usage">
+      <h1 class="display-2">Usage</h1>
+      <h3>Server</h3>
+      <p>
+        You do not need to do anything else with the server. It will provide you with messages that might help you debug
+        your module though. So keep an eye on it. Newlines in your input/output are preserved!
+      </p>
+
+      <h3>Client</h3>
+
+      <p>
+        As we've said, you can use the client straight from your Host OS assuming you downloaded the correct version,
+        and it should look something like this:
+      </p>
+      <img src="/static/client-running.png" alt="The client runnirg" class="img-fluid">
+      <p>
+        Most of the buttons should be self explanatory.
+        <ul>
+          <li>New Game: Sends the 00 B/W command. The color selected is at random. If you want to specify the color send
+            the command yourselves</li>
+          <li>Request CPU Move: Will send the 03 command to the module</li>
+          <li>Clear log: Will clear the sent/received commands from the viewer. Does not affect the module in any way.
+          </li>
+        </ul>
+      </p>
+      <p>
+        You can type commands in the input field, hit enter or the send button to send them. The viewer will send the
+        command as you typed it with a <code>'\n'</code>
+        at the end. The response you get back is exactly what your module returned from read(). The viewer does no
+        validation
+        and does not perform any logic whatsoever. Also make sure to check the server executable from debug information!
+      </p>
+
+      <h3>Chess pieces</h3>
+      <p>
+        The chess pieces are layed out from top left to bottom right. So top left is A1 and bottom right is H8. You can
+        always hover over a square to see its position! You can see an example of the board layout below.
+      </p>
+
+
+      <img src="/static/chess-pieces.png" alt="Board Layout" class="img-fluid">
+    </section>
+
+    <section id="faq">
+      <h1 class="display-2">FAQ</h1>
+      <div class="list-group">
+        <div class="list-group-item flex-column align-items-start">
+
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Q: Nothing happens when I send commands</h5>
+          </div>
+
+          <p class="mb-1">
+            A: Make sure the server is running inside your VM. You should also check the server for any debug output.
+          </p>
+
+        </div>
+        
+      </div>
+    </section>
+    
+    <section id="tldr">
+      <h1 class="display-2">TL;DR</h1>
+      <ul>
+        <li>Download the server</li>
+        <li>
+          Download one of the clients
+          <ul>
+            <li>Windows</li>
+            <li>Linux</li>
+            <li>MacOS</li>
+          </ul>
+        </li>
+        <li>Forward port 3000 on the host to 3000 on the VM</li>
+        <li>????</li>
+        <li>Profit</li>
+      </ul>
+    </section>
+
+  </section>
+
+</body>

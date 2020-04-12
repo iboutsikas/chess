@@ -1,0 +1,55 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: -1em 0.75em;
+    padding-bottom: 0.25em;
+    padding-top: 0.25em;
+
+    h3 {
+        margin-bottom: 0.25em;
+    }
+
+    .command-log {
+        flex-grow: 1;
+        flex-direction: column;
+        overflow-y: scroll;
+        margin-bottom: 1em;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        padding: 0.25em 0.75em;
+        
+        /* width */
+        &::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey; 
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: #69F0AE; 
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: rgb(71, 161, 118); 
+        }
+
+        .command-log-item {
+            display: block;
+            &.sent {
+                text-align:left;
+            }
+
+            &.reply {
+                text-align: right;
+            }
+        }
+    }
+}

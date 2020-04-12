@@ -1,0 +1,72 @@
+:host {
+    --chess-bg-color-dark: #905b30;
+    --chess-bg-color-light: #E6BF83;
+    --chessman-color: #ffffff;
+
+    display: flex;
+    // width: 100%;
+    height: 100%;
+    padding: 0.25em 1em;
+
+    .chess-board {
+        display: grid;
+        grid-gap: 0;
+        background-color: var(--chess-bg-color-light);
+        grid-template-columns: repeat(8, [col] 1fr);
+        grid-template-rows: repeat(8, [row] 1fr);
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        width: 100%;
+        justify-content: center;
+        align-content: center;
+        margin: 0.25em auto;
+
+        .chess-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            & > span {
+                color: var(--chessman-color);
+                display: block;
+                font-size: 3rem;
+
+                &.black {
+                    color: black;
+                }
+            }
+    
+            &:nth-child(-n+8):nth-child(even) {
+                background: var(--chess-bg-color-dark);
+            }
+    
+            &:nth-child(n+8):nth-child(-n+16):nth-child(odd) {
+                background: var(--chess-bg-color-dark);
+            }
+    
+            &:nth-child(n+17):nth-child(-n+24):nth-child(even) {
+                background: var(--chess-bg-color-dark);
+            }
+    
+            &:nth-child(n+25):nth-child(-n+32):nth-child(odd) {
+                background: var(--chess-bg-color-dark);
+            }
+    
+            &:nth-child(n+33):nth-child(-n+40):nth-child(even) {
+                background: var(--chess-bg-color-dark);
+            }
+    
+            &:nth-child(n+41):nth-child(-n+48):nth-child(odd) {
+                background: var(--chess-bg-color-dark);
+            }
+    
+            &:nth-child(n+49):nth-child(-n+56):nth-child(even) {
+                background: var(--chess-bg-color-dark);
+            }
+    
+            &:nth-child(n+57):nth-child(-n+64):nth-child(odd) {
+                background: var(--chess-bg-color-dark);
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+<div class="chess-board">
+    <div class="chess-block" *ngFor="let block of blocks | async" matTooltip="{{block.letter + block.number}}">
+        <span [innerHTML]="block.ascii" [ngClass]="{'black': block.color == 'black'}"></span>
+    </div>
+
+</div>

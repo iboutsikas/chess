@@ -1,0 +1,32 @@
+:host {
+    display: grid;
+    grid-template-columns: auto 25%;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "toolbar toolbar"
+        "viewer log"
+        "user-input log";
+    height: 100vh;
+}
+.spacer {
+    flex: 1;
+}
+
+button {
+    margin-right: 1em;
+}
+.toolbar {
+    grid-area: toolbar;
+}
+
+.viewer {
+    grid-area: viewer;
+}
+
+.log {
+    grid-area: log;
+}
+
+.user-input {
+    grid-area: user-input;
+}

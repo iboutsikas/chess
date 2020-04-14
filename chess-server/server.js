@@ -6,7 +6,7 @@ const logger = require('./logger');
 let result = dotenv.config();
 
 if (result.error) {
-    logger.error('Failed loading env');
+    logger.info('Could not load .env file. Using default values');
 }
 
 

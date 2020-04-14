@@ -17,7 +17,7 @@ export class CommandInputComponent implements OnInit {
   }
 
   onButtonClick(): void {
-    let value = this.command.value;
+    let value = this.command.value + '\n';
     this.command.reset();
     this.commandService.issueCommand(value);
   }

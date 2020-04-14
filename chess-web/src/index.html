@@ -27,16 +27,16 @@
 
           <div class="card">
 
-            <div class="card-header" id="changelog-header">
+            <div class="card-header" id="changelog-header-viewer">
               <h5 class="mb-0">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#changelog-content"
-                  aria-expanded="true" aria-controls="changelog-content">
-                  Changelog
+                <button class="btn btn-link" data-toggle="collapse" data-target="#changelog-content-viewer"
+                  aria-expanded="true" aria-controls="changelog-content-viewer">
+                  Server Changelog
                 </button>
               </h5>
             </div>
 
-            <div id="changelog-content" class="collapse show" aria-labelledby="changelog-header"
+            <div id="changelog-content-viewer" class="collapse show" aria-labelledby="changelog-header"
               data-parent="#changelog">
               <div class="card-body">
                 <ul class="mb-0">
@@ -44,6 +44,26 @@
                 </ul>
               </div>
             </div>
+
+            <div class="card-header" id="changelog-header-server">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#changelog-content-server"
+                  aria-expanded="true" aria-controls="changelog-content-server">
+                  Viewer Changelog
+                </button>
+              </h5>
+            </div>
+
+            <div id="changelog-content-server" class="collapse show" aria-labelledby="changelog-header-server"
+              data-parent="#changelog">
+              <div class="card-body">
+                <ul class="mb-0">
+                  <li>Version 1.0.1 - Fixed board layout bug</li>
+                  <li>Version 1.0.0 - Initial Release</li>
+                </ul>
+              </div>
+            </div>
+
           </div>
 
 
@@ -65,14 +85,14 @@
       <p>
         The first thing you need to do is download the executables. You will need:
         <ul class="list-unstyled">
-          <li>The server: <a href="downloads/chess-server" download>/downloads/chess-server</a></li>
+          <li>The server: <a href="downloads/chess-server-1.0.1" download>/downloads/chess-server-1.0.1</a></li>
         </ul>
 
         And one of the following depending on your host OS. This will be the "viewer" or client:
         <ul class="list-unstyled">
           <li>Windows x64: <a href="downloads/chess-viewer-1.0.0.exe" download>/downloads/chess-viewer-1.0.0.exe</a></li>
           <li>Linux x64: <a href="downloads/chess-viewer-1.0.0.AppImage" download>/downloads/chess-viewer-1.0.0.AppImage</a></li>
-          <li>MacOS : <a href="downloads/test.txt" download>/downloads/test.txt</a></li>
+          <li>MacOS : <a href="downloads/chess-viewer-1.0.0.app.zip" download>/downloads/chess-viewer-1.0.0.app.zip</a></li>
         </ul>
 
         Notice that you can use the linux executable inside your VM if you so chose.
@@ -194,7 +214,7 @@
           <ul>
             <li>Windows x64: <a href="downloads/chess-viewer-1.0.0.exe" download>/downloads/chess-viewer-1.0.0.exe</a></li>
             <li>Linux x64: <a href="downloads/chess-viewer-1.0.0.AppImage" download>/downloads/chess-viewer-1.0.0.AppImage</a></li>
-            <!-- <li>MacOS</li> -->
+            <li>MacOS : <a href="downloads/chess-viewer-1.0.0.app.zip" download>/downloads/chess-viewer-1.0.0.app.zip</a></li>
           </ul>
         </li>
         <li>Forward port 3000 on the host to 3000 on the VM</li>

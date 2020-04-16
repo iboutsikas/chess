@@ -16,9 +16,9 @@ function charToBlackPiece(c) {
         case 'B':
             return '&#9821;';
         case 'K':
-            return '&#9819;';
-        case 'Q':
             return '&#9818;';
+        case 'Q':
+            return '&#9819;';
         case 'P':
             return '&#9823;';
     }
@@ -33,9 +33,9 @@ function charToWhitePiece(c) {
         case 'B':
             return '&#9815;';
         case 'K':
-            return '&#9813;';
-        case 'Q':
             return '&#9812;';
+        case 'Q':
+            return '&#9813;';
         case 'P':
             return '&#9817;';
     }

@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chess Viewer - CMSC421 Spring 2020</title>
-  <!-- <base href="/~iboutsi1/" /> -->
-  <base href="/" />
+  <base href="/~iboutsi1/" />
+  <!-- <base href="/" /> -->
 
   <link rel="shortcut icon" href="static/favicon.ico" />
 </head>
@@ -97,7 +97,7 @@
         <ul class="list-unstyled">
           <li>Windows x64: <a href="downloads/chess-viewer-1.1.0.exe" download>/downloads/chess-viewer-1.1.0.exe</a></li>
           <li>Linux x64: <a href="downloads/chess-viewer-1.1.0.AppImage" download>/downloads/chess-viewer-1.1.0.AppImage</a></li>
-          <li>MacOS : <a href="downloads/chess-viewer-1.0.1.dmg" download>/downloads/chess-viewer-1.0.1.dmg</a></li>
+          <li>MacOS : <a href="downloads/chess-viewer-1.1.0.dmg" download>/downloads/chess-viewer-1.1.0.dmg</a></li>
         </ul>
 
         Notice that you can use the linux executable inside your VM if you so chose.
@@ -214,9 +214,23 @@
           </div>
 
           <p class="mb-1">
-            A: Yes, you can start one server instance, per game you want played. You need to change the port the server is listenning to
-            by starting it as <code>chess-server portnumber</code>. Then in the viewer you can change where you connect to, using the command
-            <code>/connection http://localhost:portnumber</code>. You will also have to forward all the new ports you require.
+            A: Yes, you can start one server instance, per game you want played. You then connect to that instance from any number of viewers.
+            
+            Here's a quick guide:
+
+            <ul>
+              <li>Start a server instance on some port <code>chess-server portnumber</code></li>
+              <li>
+                Start one or more instances of the viewer. You can connect to a specific server by typing the command 
+                <code>/connection http://localhost:portnumber</code>
+              </li>
+              <li>
+                Now all your commands will be sent to the server (and the game if you have implemented that part of the extra credit)
+                matching port "portnumber".
+              </li>
+            </ul>
+            
+            You will also need to forward any additional ports you are using, just like you did in the original setup
           </p>
 
         </div>
@@ -233,7 +247,7 @@
           <ul>
             <li>Windows x64: <a href="downloads/chess-viewer-1.1.0.exe" download>/downloads/chess-viewer-1.1.0.exe</a></li>
             <li>Linux x64: <a href="downloads/chess-viewer-1.1.0.AppImage" download>/downloads/chess-viewer-1.1.0.AppImage</a></li>
-            <li>MacOS : <a href="downloads/chess-viewer-1.0.1.dmg" download>/downloads/chess-viewer-1.0.1.dmg</a></li>
+            <li>MacOS : <a href="downloads/chess-viewer-1.1.0.dmg" download>/downloads/chess-viewer-1.1.0.dmg</a></li>
           </ul>
         </li>
         <li>Forward port 3000 on the host to 3000 on the VM</li>

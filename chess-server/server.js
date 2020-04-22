@@ -11,8 +11,14 @@ if (result.error) {
 
 
 (async () => {
-    const port = process.env.PORT || 3000;
+    console.log(process.argv);
 
+    let port = process.env.PORT || 3000;
+
+    if (process.argv[2]) {
+        port = parseInt(process.argv[2]);
+    }
+ 
     const server = http.createServer(app);
 
     server.listen(port, () => {

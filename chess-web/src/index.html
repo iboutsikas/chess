@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chess Viewer - CMSC421 Spring 2020</title>
-  <base href="/~iboutsi1/" />
+  <!-- <base href="/~iboutsi1/" /> -->
+  <base href="/" />
 
   <link rel="shortcut icon" href="static/favicon.ico" />
 </head>
@@ -40,6 +41,7 @@
               data-parent="#changelog">
               <div class="card-body">
                 <ul class="mb-0">
+                  <li>Version 1.1.0 - Now supports connecting to specific endpoints</li>
                   <li>Version 1.0.1 - Add '\n' to the end of commands</li>
                   <li>Version 1.0.0 - Initial Release</li>
                 </ul>
@@ -59,6 +61,7 @@
               data-parent="#changelog">
               <div class="card-body">
                 <ul class="mb-0">
+                  <li>Version 1.1.0 - Now supports extra credit</li>
                   <li>Version 1.0.2 - Fixed king and queen icons</li>
                   <li>Version 1.0.1 - Fixed board layout bug</li>
                   <li>Version 1.0.0 - Initial Release</li>
@@ -87,13 +90,13 @@
       <p>
         The first thing you need to do is download the executables. You will need:
         <ul class="list-unstyled">
-          <li>The server: <a href="downloads/chess-server-1.0.2" download>/downloads/chess-server-1.0.2</a></li>
+          <li>The server: <a href="downloads/chess-server-1.1.0" download>/downloads/chess-server-1.1.0</a></li>
         </ul>
 
         And one of the following depending on your host OS. This will be the "viewer" or client:
         <ul class="list-unstyled">
-          <li>Windows x64: <a href="downloads/chess-viewer-1.0.1.exe" download>/downloads/chess-viewer-1.0.1.exe</a></li>
-          <li>Linux x64: <a href="downloads/chess-viewer-1.0.1.AppImage" download>/downloads/chess-viewer-1.0.1.AppImage</a></li>
+          <li>Windows x64: <a href="downloads/chess-viewer-1.1.0.exe" download>/downloads/chess-viewer-1.1.0.exe</a></li>
+          <li>Linux x64: <a href="downloads/chess-viewer-1.1.0.AppImage" download>/downloads/chess-viewer-1.1.0.AppImage</a></li>
           <li>MacOS : <a href="downloads/chess-viewer-1.0.1.dmg" download>/downloads/chess-viewer-1.0.1.dmg</a></li>
         </ul>
 
@@ -203,6 +206,20 @@
           </p>
 
         </div>
+
+        <div class="list-group-item flex-column align-items-start">
+
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Q: I am doing the extra credit, can this thing help ?</h5>
+          </div>
+
+          <p class="mb-1">
+            A: Yes, you can start one server instance, per game you want played. You need to change the port the server is listenning to
+            by starting it as <code>chess-server portnumber</code>. Then in the viewer you can change where you connect to, using the command
+            <code>/connection http://localhost:portnumber</code>. You will also have to forward all the new ports you require.
+          </p>
+
+        </div>
         
       </div>
     </section>
@@ -210,12 +227,12 @@
     <section id="tldr">
       <h1 class="display-2">TL;DR</h1>
       <ul>
-        <li>Download the server: <a href="downloads/chess-server-1.0.2" download>/downloads/chess-server-1.0.2</a></li>
+        <li>Download the server: <a href="downloads/chess-server-1.1.0" download>/downloads/chess-server-1.1.0</a></li>
         <li>
           Download one of the clients
           <ul>
-            <li>Windows x64: <a href="downloads/chess-viewer-1.0.1.exe" download>/downloads/chess-viewer-1.0.1.exe</a></li>
-            <li>Linux x64: <a href="downloads/chess-viewer-1.0.1.AppImage" download>/downloads/chess-viewer-1.0.1.AppImage</a></li>
+            <li>Windows x64: <a href="downloads/chess-viewer-1.1.0.exe" download>/downloads/chess-viewer-1.1.0.exe</a></li>
+            <li>Linux x64: <a href="downloads/chess-viewer-1.1.0.AppImage" download>/downloads/chess-viewer-1.1.0.AppImage</a></li>
             <li>MacOS : <a href="downloads/chess-viewer-1.0.1.dmg" download>/downloads/chess-viewer-1.0.1.dmg</a></li>
           </ul>
         </li>

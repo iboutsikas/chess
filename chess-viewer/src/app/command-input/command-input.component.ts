@@ -17,9 +17,24 @@ export class CommandInputComponent implements OnInit {
   }
 
   onButtonClick(): void {
-    let value = this.command.value + '\n';
+    let value = this.command.value;
     this.command.reset();
+
+    if (value[0] == '/') {
+      this.processLocalCommand(value);
+      return;
+    }
+
+    value = value + '\n';
+
     this.commandService.issueCommand(value);
   }
 
+  private processLocalCommand(command: string): void {
+    let tokens = command.split(' ');
+    tokens[0] = tokens[0].slice(1);
+
+    this.commandService.localCommand(tokens);
+      
+  }
 }

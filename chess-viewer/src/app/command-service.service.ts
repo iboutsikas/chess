@@ -15,6 +15,7 @@ const REQUEST_STATE = "01\n";
   providedIn: 'root'
 })
 export class CommandServiceService {
+  private connectionString: string;
   private issuedCommands: CommandItem[] = [];
 
   private sentCommands: Subject<CommandItem[]>;
@@ -31,6 +32,7 @@ export class CommandServiceService {
   constructor(private http: HttpClient) {
     this.sentCommands = new Subject<CommandItem[]>();
     this.state = new Subject<ChessBlock[]>();
+    this.connectionString = 'http://localhost:3000';
   }
 
   public issueCommand(command: string) {
@@ -39,13 +41,32 @@ export class CommandServiceService {
       command: command
     }
 
-    this.http.post<CommandReply>('http://localhost:3000', body)
+    this.http.post<CommandReply>(this.connectionString, body)
       .subscribe(data => {
         this.issuedCommands.push({command: data.command, reply: data.reply});
 
         this.sentCommands.next(this.issuedCommands);
         this.state.next(data.state);
       });
+  }
+
+  public localCommand(tokens: string[]): void {
+    let item: CommandItem = {
+      command: tokens.join(' '),
+      reply: ''
+    };
+
+    if (tokens[0] == 'connection') {
+      this.connectionString = tokens[1];
+      item.reply = 'Connection string changed';
+    }
+    else {
+      item.reply = 'Unknown Command';
+    }
+
+    this.issuedCommands.push(item);
+
+    this.sentCommands.next(this.issuedCommands);
   }
 
   public clearCommands(): void {

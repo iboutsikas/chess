@@ -4,8 +4,8 @@ const fs = require('fs').promises;
 const logger = require('./logger.js');
 
 const STATE_UPDATE = '01\n';
-const test_state = "BRBNBBBQBKBBBNBRBPBPBPBPBPBPBPBP****************************************************************WPWPWPWPWPWPWPWPWRWNWBWQWKWBWNWR";
-
+// const test_state = "BRBNBBBQBKBBBNBRBPBPBPBPBPBPBPBP****************************************************************WPWPWPWPWPWPWPWPWRWNWBWQWKWBWNWR";
+let devfile = null;
 
 function charToBlackPiece(c) {
     switch (c) {
@@ -107,24 +107,23 @@ app.post("/", catchAsyncErrors(async (req, res, any) => {
         throw error;
     }
     try {
-        let file = await fs.open(file_path, 'r+');
-
+        if (!devfile)
+        devfile = await fs.open(file_path, 'r+');
+        
         logger.debug(`Got command: ${command}. Length: ${command.length}`)
-        let {bytesWritten} = await file.write(command);
+        let {bytesWritten} = await devfile.write(command);
         logger.debug(`Wrote ${bytesWritten} bytes to file`);
         
         let commandReply = Buffer.alloc(256);
-        let {bytesRead} = await file.read(commandReply, 0, 256, 0);
+        let {bytesRead} = await devfile.read(commandReply, 0, 256, 0);
         logger.debug(`Driver replied with: ${commandReply.toString()}. Length: ${bytesRead}`);
 
-        await file.write(STATE_UPDATE);
+        await devfile.write(STATE_UPDATE);
 
         let stateBuffer = Buffer.alloc(256);
-        let thing = await file.read(stateBuffer, 0, 256, 0);
+        let thing = await devfile.read(stateBuffer, 0, 256, 0);
         let state = stateBuffer.toString().slice(0, thing.bytesRead - 1);
         logger.debug(`State is: ${state}. Length: ${thing.bytesRead}`);
-
-        file.close();
 
         let reply = {
             command: command,

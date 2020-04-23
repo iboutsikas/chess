@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 import { HomeRoutingModule } from './home-routing.module';
@@ -23,7 +24,7 @@ import { ChessBoardComponent } from '../chess-board/chess-board.component';
 @NgModule({
   declarations: [HomeComponent, CommandInputComponent, CommandLogComponent, ChessBoardComponent],
   imports: [CommonModule, SharedModule, HomeRoutingModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule,
-    MatIconModule, ReactiveFormsModule, MatListModule, MatTooltipModule
+    MatIconModule, ReactiveFormsModule, MatListModule, MatTooltipModule, MatSlideToggleModule
   ]
 })
 export class HomeModule { }

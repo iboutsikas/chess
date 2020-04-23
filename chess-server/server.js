@@ -11,8 +11,6 @@ if (result.error) {
 
 
 (async () => {
-    console.log(process.argv);
-
     let port = process.env.PORT || 3000;
 
     if (process.argv[2]) {

@@ -1,6 +1,7 @@
 <mat-toolbar class="toolbar">
     <span>Chess Viewer</span>
     <div class="spacer"></div>
+    <mat-slide-toggle [checked]="showDebugView">Debug View</mat-slide-toggle>
     <button mat-raised-button color="primary" (click)="onNewGame()">New Game</button>
     <button mat-raised-button color="accent" (click)="onCPU()">Request CPU Move</button>
 </mat-toolbar>

@@ -4,7 +4,15 @@ const fs = require('fs').promises;
 const logger = require('./logger.js');
 
 const STATE_UPDATE = '01\n';
-// const test_state = "BRBNBBBQBKBBBNBRBPBPBPBPBPBPBPBP****************************************************************WPWPWPWPWPWPWPWPWRWNWBWQWKWBWNWR";
+const test_state = "WRWNWBWQWKWBWNWR"
+                 + "WPWPWPWPWPWPWPWP"
+                 + "****************"
+                 + "****************"
+                 + "****************"
+                 + "****************"
+                 + "BPBPBPBPBPBPBPBP"
+                 + "BRBNBBBQBKBBBNBR";
+
 let devfile = null;
 
 function charToBlackPiece(c) {

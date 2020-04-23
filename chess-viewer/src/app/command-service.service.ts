@@ -17,6 +17,8 @@ const REQUEST_STATE = "01\n";
 export class CommandServiceService {
   private connectionString: string;
   private issuedCommands: CommandItem[] = [];
+  private lastState: ChessBlock[];
+  private showDebugView: boolean;
 
   private sentCommands: Subject<CommandItem[]>;
   private state: Subject<ChessBlock[]>;
@@ -32,6 +34,7 @@ export class CommandServiceService {
   constructor(private http: HttpClient) {
     this.sentCommands = new Subject<CommandItem[]>();
     this.state = new Subject<ChessBlock[]>();
+    this.lastState = [];
     this.connectionString = 'http://localhost:3000';
   }
 
@@ -44,9 +47,12 @@ export class CommandServiceService {
     this.http.post<CommandReply>(this.connectionString, body)
       .subscribe(data => {
         this.issuedCommands.push({command: data.command, reply: data.reply});
+        this.lastState = data.state;
 
         this.sentCommands.next(this.issuedCommands);
-        this.state.next(data.state);
+        const rev = this.mapState(this.lastState);
+        
+        this.state.next(rev);
       });
   }
 
@@ -83,4 +89,34 @@ export class CommandServiceService {
 
     this.issueCommand(command);
   }
+
+  public setDebugView(enable: boolean): void {
+    this.showDebugView = enable;
+
+    this.state.next(this.mapState(this.lastState));
+  }
+
+  private mapState(state:ChessBlock[]): ChessBlock[] {
+    if (state.length == 0) {
+      return state;
+    }
+
+    let rv = [];
+    if (this.showDebugView) {
+      rv = state;
+    }
+    else {
+      rv = [...state];
+
+      for(let y = 0; y < 4; y++) {
+        for (let x = 0; x < 8; x++) {
+          let temp = rv[y * 8 + x];
+          rv[y * 8 + x] = rv[(7 - y) * 8 + x];
+          rv[(7 - y) * 8 + x] = temp;
+        }
+      }
+    }
+    return rv;
+  }
+
 }

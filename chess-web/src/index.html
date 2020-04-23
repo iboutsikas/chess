@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chess Viewer - CMSC421 Spring 2020</title>
-  <base href="/~iboutsi1/" />
-  <!-- <base href="/" /> -->
+  <!-- <base href="/~iboutsi1/" /> -->
+  <base href="/" />
 
   <link rel="shortcut icon" href="static/favicon.ico" />
 </head>
@@ -184,12 +184,28 @@
 
       <h3>Chess pieces</h3>
       <p>
-        The chess pieces are layed out from top left to bottom right. So top left is A1 and bottom right is H8. You can
-        always hover over a square to see its position! You can see an example of the board layout below.
+        After popular demand there are two ways to display the board now. You can change the view by using the toggle on the top right.
+      </p> 
+      <p>
+        The first view is the "normal" view that you would see
+        if you were playing in a real chess application. It shows the black pieces on the top of the board and the white pieces on 
+        the bottom. It also abides by rules like "queen on her own color". You can see an example of that below.
       </p>
 
+      <img src="static/chess-pieces.png" alt="Board Layout" class="img-fluid mb-3">
 
-      <img src="static/chess-pieces.png" alt="Board Layout" class="img-fluid">
+      <p>
+        The other way is the one that was used up until now, and it is called the "debug view". It will show you the pieces in the order
+        you return them after a <code>01</code> command. This should result in a mirror of the previously described view. You can see an
+        example of that below.
+      </p>
+
+      <img src="static/chess-pieces-debug.png" alt="Board Layout" class="img-fluid mb-3">
+
+      <div class="alert alert-danger">
+        The viewer will not attempt to create a correct view out of the data provided. If you do not provide the state in the correct
+        format, you will get wrong results.
+      </div>
     </section>
 
     <section id="faq">

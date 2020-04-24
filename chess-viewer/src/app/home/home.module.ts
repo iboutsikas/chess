@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 import { HomeRoutingModule } from './home-routing.module';
@@ -24,7 +25,7 @@ import { ChessBoardComponent } from '../chess-board/chess-board.component';
 @NgModule({
   declarations: [HomeComponent, CommandInputComponent, CommandLogComponent, ChessBoardComponent],
   imports: [CommonModule, SharedModule, HomeRoutingModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule,
-    MatIconModule, ReactiveFormsModule, MatListModule, MatTooltipModule, MatSlideToggleModule
+    MatIconModule, ReactiveFormsModule, MatListModule, MatTooltipModule, MatSlideToggleModule, MatSnackBarModule
   ]
 })
 export class HomeModule { }

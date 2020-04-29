@@ -19,7 +19,7 @@ const check_version = async (url) => {
         const my_version = process.env.npm_package_version;
         const newest_version = json.server.version;
 
-        if (compareVersions(newest_version, my_version) != 1) {
+        if (compareVersions.compare(newest_version, my_version, '>') != 1) {
             logger.info("No newer versions found.");
         }
         else {
